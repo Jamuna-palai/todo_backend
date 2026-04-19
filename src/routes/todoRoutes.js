@@ -1,9 +1,12 @@
 const express = require("express");
-const { getTodos } = require("../controllers/todoController");
+const { getTodos, createTodo, updateTodo, getTodoById,deleteTodo } = require("../controllers/todoController");
 
 const router = express.Router();
 
-// GET /api/todos -> fetch all todo rows from SQL table.
 router.get("/", getTodos);
+router.get("/:id", getTodoById);  
+router.post("/", createTodo);
+router.put("/:id", updateTodo);
+router.delete("/:id",deleteTodo);
 
 module.exports = router;
